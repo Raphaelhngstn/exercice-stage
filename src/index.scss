@@ -1,5 +1,7 @@
-@use 'reset';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  background-color: lightgreen;
+  background-color: rgb(6 78 59);
 }
