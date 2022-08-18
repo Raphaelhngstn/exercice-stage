@@ -1,40 +1,56 @@
 import './App.css';
-import { getFirstData } from './services/getFirstData';
+import { getImages } from './services/getImages';
 import { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
 import Container from './components/Container/Container';
 
 
+/**
+* Main entry point
+*/
+
 function App() {
 
-  const [data, setData] = useState([]);
+  /**
+   * Initiate states variables
+   */
+
+  const [arrayOfImages, setArrayOfImages] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [pageNumber, setPageNumber] = useState(1);
 
-  const getData = async () => {
-    const response = await getFirstData();
-    if (response.status === 200){
-      let imageResults = [];
+  /**
+   * Fetch initial images
+   */
 
-    for (let index = 0; index < response.data.hits.length; index++) {
-      imageResults.push(response.data.hits[index].webformatURL)
-    }
-    setData(imageResults);
-    }
+  const loadImages = async (value) => {
+    const images = await getImages(value, pageNumber);
+    setArrayOfImages(images);
   }
 
+  /**
+   * When the component is mounted
+   */
+
   useEffect(() => {
-    getData();
+    loadImages(inputValue, pageNumber);
   }, [])
 
   return (
     <div className="App">
-      <SearchBar 
-        inputValue={inputValue}
+      <SearchBar
+        setArrayOfImages={setArrayOfImages}
+        setPageNumber={setPageNumber}
+        pageNumber={pageNumber}
         setInputValue={setInputValue}
-        setData={setData}
+        inputValue={inputValue}
       />
       <Container 
-        data={data}
+        pageNumber={pageNumber}
+        setPageNumber={setPageNumber}
+        arrayOfImages={arrayOfImages}
+        setArrayOfImages={setArrayOfImages}
+        inputValue={inputValue}
       />
     </div>
   );

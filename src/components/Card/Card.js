@@ -1,13 +1,18 @@
 import React from 'react';
 
-const Card = ({ data }) => {
+/**
+ * Card component to display a single image
+ */
+
+const Card = ({ image }) => {
   return (
-    <div className='rounded-lg '>
-        <img className='rounded-lg border border-white-500 card' src={data} />
+    <div className='rounded-lg mx-auto '>
+        <img 
+            className='rounded-lg border object-cover h-48 w-96' 
+            src={image} 
+        />
     </div>
-    
   )
 }
-
 
 export default Card;
