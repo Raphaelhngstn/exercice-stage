@@ -32,7 +32,7 @@ const Container = ({
      * The button "More Images" is displayed only when we have results"
      */
     <>
-      <div className='mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+      <div className='mx-auto px-8 grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
         {
           arrayOfImages.map((image,index) => {
             return <Card key={index} image={image} />
@@ -41,7 +41,7 @@ const Container = ({
       </div>
       {
         arrayOfImages.length ?
-        <div className='mx-auto grid w-48 mt-6 mb-2'>
+        <div className='mx-auto grid w-48 mt-6 py-4'>
         <button
           onClick={handleClick} 
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded">

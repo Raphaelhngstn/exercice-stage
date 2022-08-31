@@ -37,7 +37,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div className="App min-h-screen bg-green-900 ">
       <SearchBar
         setArrayOfImages={setArrayOfImages}
         setPageNumber={setPageNumber}

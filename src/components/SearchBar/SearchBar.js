@@ -31,7 +31,7 @@ const SearchBar = ({
     return (
 
     <form 
-        className='mx-auto py-8 grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1'
+        className='mx-auto p-8 grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1'
         onSubmit={handleSubmit}
     >   
         <label 
